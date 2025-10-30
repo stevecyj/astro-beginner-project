@@ -12,3 +12,28 @@
     ></path>
   </svg>
 </button>
+
+<style>
+  button {
+    cursor: pointer;
+    border-radius: 10px;
+    border: 0;
+    padding: 5px 10px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  button:hover {
+    /* Make the button smaller (scale down) when hovered */
+    transform: scale(0.9);
+  }
+
+  button:active {
+    /** Return the button to its standard size when active */
+    transform: scale(1);
+  }
+
+  .sun {
+    /* Hide the sun icon by default. This assumes a light theme by default */
+    fill: transparent;
+  }
+</style>
