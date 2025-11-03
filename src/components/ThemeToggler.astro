@@ -13,6 +13,33 @@
   </svg>
 </button>
 
+<script>
+  const DARK_THEME_CLASS = "dark"
+  /** Represent the local storage key by a variable */
+  const COLOUR_MODE = "COLOUR_MODE"
+  /** Represent the local storage values by variables */
+  const LIGHT_THEME = "LIGHT"
+  const DARK_THEME = "DARK"
+
+  /** Grab the toggle */
+  const toggle = document.querySelector("button")
+  /** Grab the document root element. In this case <html>  */
+  const rootEl = document.documentElement
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      /** toggle the "dark" class on the root element */
+      rootEl.classList.toggle(DARK_THEME_CLASS)
+
+      const colourMode = rootEl.classList.contains(DARK_THEME_CLASS)
+        ? DARK_THEME
+        : LIGHT_THEME
+
+      window.localStorage.setItem(COLOUR_MODE, colourMode)
+    })
+  }
+</script>
+
 <style>
   button {
     cursor: pointer;
@@ -32,8 +59,12 @@
     transform: scale(1);
   }
 
-  .sun {
-    /* Hide the sun icon by default. This assumes a light theme by default */
+  :global(.dark) .sun {
+    fill: black;
+  }
+
+  /** If a parent element has a .dark class, target the .moon icon and make the path transparent (hides the icon) */
+  :global(.dark) .moon {
     fill: transparent;
   }
 </style>
