@@ -19,8 +19,43 @@ import Footer from "../components/Footer.astro"
     <meta name="generator" content={Astro.generator} />
     {/* Add a new meta description tag */}
     <meta name="description" content="Frau Katarina's website" />
-    {/* Title is hardcoded as Astro, for now. */}
 
+    {/* Theme initialization - must run before page renders to prevent flash */}
+    <script is:inline>
+      const DARK_THEME_CLASS = "dark"
+      const COLOUR_MODE = "COLOUR_MODE"
+      const LIGHT_THEME = "LIGHT"
+      const DARK_THEME = "DARK"
+
+      const getInitialColourMode = () => {
+        // Get colour mode from local storage
+        const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE)
+        if (previouslySavedColourMode) {
+          return previouslySavedColourMode
+        }
+        // Does the user prefer dark mode?
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return DARK_THEME
+        }
+        // Default to the light theme
+        return LIGHT_THEME
+      }
+
+      const setInitialColourMode = (mode) => {
+        const rootEl = document.documentElement
+        if (mode === LIGHT_THEME) {
+          rootEl.classList.remove(DARK_THEME_CLASS)
+        } else {
+          rootEl.classList.add(DARK_THEME_CLASS)
+        }
+      }
+
+      // Set the initial colour mode immediately
+      const initialColourMode = getInitialColourMode()
+      setInitialColourMode(initialColourMode)
+    </script>
+
+    {/* Title is hardcoded as Astro, for now. */}
     <title>Astro</title>
   </head>
   <body>
