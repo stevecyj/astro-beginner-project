@@ -59,6 +59,16 @@
     transform: scale(1);
   }
 
+  /** Default (light mode) - hide sun, show moon */
+  .sun {
+    fill: transparent;
+  }
+
+  .moon {
+    fill: black;
+  }
+
+  /** Dark mode - show sun, hide moon */
   :global(.dark) .sun {
     fill: black;
   }
