@@ -1,5 +1,8 @@
 ---
-layout: ../layouts/Main.astro
+layout: ../layouts/Blog.astro
+poster: "/images/philosophies.jpg"
+title: "My Guiding Philosophies"
+subtitle: "These are the philosophies that guide every decision and action I make."
 ---
 - 5X **Marathoner**
 - Olympic gold medalist

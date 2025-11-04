@@ -2,6 +2,12 @@
 import "../styles/global.css"
 import NavigationBar from "../components/NavigationBar.astro"
 import Footer from "../components/Footer.astro"
+
+type Props = {
+  title: string
+}
+
+const { title } = Astro.props
 ---
 
 <html lang="en">
@@ -57,7 +63,7 @@ import Footer from "../components/Footer.astro"
     </script>
 
     {/* Title is hardcoded as Astro, for now. */}
-    <title>Astro</title>
+    <title>{title}</title>
   </head>
   <body>
     <main>
