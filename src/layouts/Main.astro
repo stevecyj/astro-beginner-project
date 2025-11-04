@@ -29,7 +29,8 @@ import Footer from "../components/Footer.astro"
 
       const getInitialColourMode = () => {
         // Get colour mode from local storage
-        const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE)
+        const previouslySavedColourMode =
+          window.localStorage.getItem(COLOUR_MODE)
         if (previouslySavedColourMode) {
           return previouslySavedColourMode
         }
