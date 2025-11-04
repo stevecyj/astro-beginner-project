@@ -6,7 +6,7 @@ export type Props = {
   gradientTo: string
 }
 
-const { title, to } = Astro.props
+const { title, to, gradientFrom, gradientTo } = Astro.props
 ---
 
 <a href={to} class="card">
@@ -17,7 +17,7 @@ const { title, to } = Astro.props
   </div>
 </a>
 
-<style>
+<style define:vars={{ gradientFrom, gradientTo }}>
   .card {
     /** local CSS variable reused below */
     --radius: 10px;
@@ -26,6 +26,12 @@ const { title, to } = Astro.props
     border-radius: var(--radius);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
+
+    background-image: linear-gradient(
+      to right,
+      var(--gradientFrom),
+      var(--gradientTo)
+    );
   }
 
   .card:hover {

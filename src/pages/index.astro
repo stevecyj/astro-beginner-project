@@ -4,6 +4,8 @@ const profilePicture =
   "https://png.pngtree.com/png-clipart/20190904/original/pngtree-user-cartoon-avatar-pattern-flat-avatar-png-image_4492883.jpg"
 
 console.log("Hello from index.astro page")
+
+import Cards from "../components/Cards.astro"
 ---
 
 <script>
@@ -29,4 +31,27 @@ console.log("Hello from index.astro page")
       </p>
     </div>
   </div>
+
+  <Cards
+    cards={[
+      {
+        title: "Here are my guiding philosophies for life",
+        gradientFrom: "#818cf8",
+        gradientTo: "#d8b4fe",
+        to: "/philosophies",
+      },
+      {
+        title: "A summary of my work history",
+        gradientFrom: "#fde68a",
+        gradientTo: "#fca5a5",
+        to: "/work-summary",
+      },
+      {
+        title: "What I do beyond technology",
+        gradientFrom: "#6ee7b7",
+        gradientTo: "#9333ea",
+        to: "/beyond-tech",
+      },
+    ]}
+  />
 </Main>
